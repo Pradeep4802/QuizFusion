@@ -9,7 +9,7 @@ public class DBConnect {
         Connection con = null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            String url = "jdbc:mysq://localhost:3306/QuizFusion";
+            String url = "jdbc:mysql://localhost:3306/quizfusion";
             con = DriverManager.getConnection(url,"root","");
         } catch(Exception e) {
             e.printStackTrace();

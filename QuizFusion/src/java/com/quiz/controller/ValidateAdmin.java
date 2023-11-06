@@ -26,9 +26,8 @@ public class ValidateAdmin extends HttpServlet {
         try {
             String username = request.getParameter("username");
             String password = request.getParameter("password");
-
             if (AdminDao.checkAdmin(username, password)) {
-                out.println("User Logged Successfully");
+                response.sendRedirect("AdminPanel.jsp");
             } else {
                 out.println("User Logged UnSuccessfully");
             }
