@@ -4,9 +4,25 @@
         <servlet-name>ValidateServlet</servlet-name>
         <servlet-class>com.quiz.controller.ValidateServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ValidateStudent</servlet-name>
+        <servlet-class>com.quiz.controller.ValidateStudent</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>InstructionServlet</servlet-name>
+        <servlet-class>com.quiz.controller.InstructionServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ValidateServlet</servlet-name>
         <url-pattern>/ValidateServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ValidateStudent</servlet-name>
+        <url-pattern>/ValidateStudent</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InstructionServlet</servlet-name>
+        <url-pattern>/InstructionServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

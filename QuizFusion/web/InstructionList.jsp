@@ -5,7 +5,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Student List</title>
+        <title>Instruction List</title>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
     </head>
@@ -66,21 +66,19 @@
     </style>
     <body>
         <div class="container">
-            <nav><h1>List Of All Student</h1></nav>
+            <nav><h1>List Of All Instruction</h1></nav>
             <table border="3" cellspacing="10px" cellpadding="10px">
                 <thead>
                     <tr>
                         <td>Sr.No</td>
-                        <td>UserID</td>
-                        <td>Name</td>
-                        <td>Password</td>
-                        <td>Update</td>
+                        <td>Instruction</td>
+                        <td>Operation</td>
                         <td>Delete</td>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td colspan="4" class="lastCol" id="addStudent"><p>Add Student</p></td>
+                        <td colspan="4" class="lastCol" id="addInstruction"><p>Add Instruction</p></td>
                         <td colspan="2" class="lastCol" id="backPanel"><p>Back to Panel</p></td>
                     </tr>
                 </tbody>
@@ -89,11 +87,11 @@
         
         <!-- Script Tag All JS Code here -->
         <script>
-            let addStudent = document.querySelector("#addStudent");
+            let addInstruction = document.querySelector("#addInstruction");
             let backPanel = document.querySelector("#backPanel");
             
-            addStudent.addEventListener('click', ()=>{
-               window.location.href = "AddStudent.jsp"; 
+            addInstruction.addEventListener('click', ()=>{
+               window.location.href = "AddInstruction.jsp"; 
             });
             
             backPanel.addEventListener('click', ()=>{

@@ -61,10 +61,15 @@
             let logout = document.getElementById("logout");
             console.log("Success");
             addStudent.addEventListener('click', studentList);
+            addInstruct.addEventListener('click', instructList);
             console.log("Failure");
             
             function studentList() {
                 window.location.href = "StudentList.jsp";
+            }
+            
+            function instructList() {
+                window.location.href = "InstructionList.jsp";
             }
         </script>
     </body>
