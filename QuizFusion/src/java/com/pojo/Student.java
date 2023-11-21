@@ -7,7 +7,7 @@ package com.pojo;
 public class Student {
 
     private String name, userid, pass;
-
+    private int no;
     public Student() {
     }
 
@@ -15,6 +15,14 @@ public class Student {
         this.name = name;
         this.userid = userid;
         this.pass = pass;
+    }
+    
+    public int getNo() {
+        return no;
+    }
+    
+    public void setNo(int no) {
+        this.no = no;
     }
     
     public String getName() {

@@ -2,9 +2,10 @@
 package com.quiz.controller;
 
 import java.io.IOException;
+import java.util.*;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
+import javax.servlet.http.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.pojo.*;
@@ -16,7 +17,14 @@ public class ValidateStudent extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        response.setContentType("text/html");
+        try (PrintWriter out = response.getWriter()) {
+            HttpSession session = request.getSession();
+            List<Student> list = StudentDao.getAllStudentList();
+            session.setAttribute("stdlist", list);
+            out.println("Hii");
+            response.sendRedirect("StudentList.jsp");
+        }
     }
 
     @Override

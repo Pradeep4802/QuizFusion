@@ -65,7 +65,7 @@
             console.log("Failure");
             
             function studentList() {
-                window.location.href = "StudentList.jsp";
+                window.location.href = "ValidateStudent";
             }
             
             function instructList() {

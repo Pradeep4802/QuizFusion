@@ -11,6 +11,30 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Add Instruction</title>
     </head>
+    <style>
+        input[type=submit] {
+            border: 2px solid black;
+            padding: 0.5rem 1rem;
+            border-radius: 15px;
+            color: white;
+            background: black;
+            font-weight: bold;
+        }
+        p {
+            display: inline-block;
+            border: 2px solid black;
+            padding: 0.5rem 1rem;
+            border-radius: 15px;
+            color: red;
+            background: yellow;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        p:hover {
+            color: purple;
+            background: lightgreen;
+        }
+    </style>
     <body>
         <div align="center">
             <h1>Enter Instruction Here....</h1>

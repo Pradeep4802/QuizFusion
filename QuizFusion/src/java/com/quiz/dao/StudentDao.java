@@ -1,6 +1,7 @@
 package com.quiz.dao;
 
 import java.sql.*;
+import java.util.*;
 import com.pojo.*;
 
 public class StudentDao {
@@ -24,5 +25,26 @@ public class StudentDao {
             e.printStackTrace();
         }
         return false;
+    }
+
+    public static List<Student> getAllStudentList() {
+        String sql = "select * from student";
+        List<Student> list = new ArrayList();
+        try {
+            PreparedStatement pst = con.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()) {
+                Student st = new Student();
+                st.setName(rs.getString("name"));
+                st.setUserid(rs.getString("UserID"));
+                st.setPass(rs.getString("password"));
+                list.add(st);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return list;
     }
 }
