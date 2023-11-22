@@ -7,9 +7,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Instruction List</title>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+        <title>Question list</title>
     </head>
     <style>
         * {
@@ -66,34 +64,44 @@
             cursor: pointer;
         }
     </style>
-    <%
-        List<Instruction> list = (List<Instruction>) session.getAttribute("listInstruct");
-        int count = 1;
-    %>
     <body>
+        <%
+            List<Question> listquestion = (List<Question>) session.getAttribute("listquestion");
+        %>
         <div class="container">
-            <nav><h1>List Of All Instruction</h1></nav>
+            <nav><h1>List Of All Question</h1></nav>
             <table border="3" cellspacing="10px" cellpadding="10px">
                 <thead>
                     <tr>
-                        <td>Sr.No</td>
-                        <td>Instruction</td>
-                        <td>Update</td>
-                        <td>Delete</td>
+                        <th>Sr.No</th>
+                        <th>Question</th>
+                        <th>Opt A</th>
+                        <th>Opt B</th>
+                        <th>Opt C</th>
+                        <th>Opt D</th>
+                        <th>Correct Ans</th>
+                        <th>Update</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <% for (Instruction ins : list) {%>
+                    <% for (Question ques : listquestion) {%>
                     <tr style="padding: 15px 10px; background: wheat; font-size: 20px; color: blueviolet;">
-                        <td><%= ins.getSrno()%></td>
-                        <td><%= ins.getInstruct()%></td>
-                        <td><a href="InsructionServlet?action=edit&&id=<%=ins.getSrno()%>">Edit</a></td>
-                        <td><a href="InsructionServlet?action=delete&&id=<%=ins.getSrno()%>">Delete</a></td>
+                        <td><%= ques.getId() %></td>
+                        <td><%= ques.getQuestion() %></td>
+                        <td><%= ques.getOpta()%></td>
+                        <td><%= ques.getOptb()%></td>
+                        <td><%= ques.getOptc()%></td>
+                        <td><%= ques.getOptd()%></td>
+                        <td><%= ques.getCorrectans()%></td>
+                        <td><a href="QuestionServlet?action=edit&&id=<%=ques.getId()%>">Edit</a></td>
+                        <td><a href="QuestionServlet?action=delete&&id=<%=ques.getId()%>">Delete</a></td>
                     </tr>
                     <% }%> 
+
                     <tr>
-                        <td colspan="2" class="lastCol" ><p id="addInstruction">Add Instruction</p></td>
-                        <td colspan="2" class="lastCol" ><p id="backPanel">Back to Panel</p></td>
+                        <td colspan="5" class="lastCol" ><p id="addQuestion">Add Question</p></td>
+                        <td align="right" colspan="4" class="lastCol" ><p align="center" id="backPanel">Back to Panel</p></td>
                     </tr>
                 </tbody>
             </table>
@@ -101,11 +109,11 @@
 
         <!-- Script Tag All JS Code here -->
         <script>
-            let addInstruction = document.querySelector("#addInstruction");
+            let addQuestion = document.querySelector("#addQuestion");
             let backPanel = document.querySelector("#backPanel");
 
-            addInstruction.addEventListener('click', () => {
-                window.location.href = "AddInstruction.jsp";
+            addQuestion.addEventListener('click', () => {
+                window.location.href = "AddQuestion.jsp";
             });
 
             backPanel.addEventListener('click', () => {

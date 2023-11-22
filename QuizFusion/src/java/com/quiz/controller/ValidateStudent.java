@@ -1,4 +1,3 @@
-
 package com.quiz.controller;
 
 import java.io.IOException;
@@ -20,10 +19,24 @@ public class ValidateStudent extends HttpServlet {
         response.setContentType("text/html");
         try (PrintWriter out = response.getWriter()) {
             HttpSession session = request.getSession();
-            List<Student> list = StudentDao.getAllStudentList();
-            session.setAttribute("stdlist", list);
-            out.println("Hii");
-            response.sendRedirect("StudentList.jsp");
+
+            String action = request.getParameter("action");
+
+            if (action != null && action.equals("liststudent")) {
+                List<Student> list = StudentDao.getAllStudentList();
+                session.setAttribute("stdlist", list);
+                out.println("Hii");
+                response.sendRedirect("StudentList.jsp");
+            }
+            else if(action != null && action.equals("delete")) {
+                int id = Integer.parseInt(request.getParameter("id"));
+                boolean del = StudentDao.deleteStudent(id);
+                if(del) {
+                    response.sendRedirect("ValidateStudent?action=liststudent");
+                }else {
+                    response.sendRedirect("Error.jsp");
+                }
+            }
         }
     }
 
@@ -35,15 +48,15 @@ public class ValidateStudent extends HttpServlet {
             String name = request.getParameter("studentName");
             String id = request.getParameter("studentId");
             String pass = request.getParameter("studentPass");
-            
+
             Student stud = new Student();
             stud.setName(name);
             stud.setUserid(id);
             stud.setPass(pass);
-            
+
             boolean studDetails = StudentDao.insertStudent(stud);
-            
-            if(studDetails) {
+
+            if (studDetails) {
                 RequestDispatcher rd = request.getRequestDispatcher("AddStudent.jsp");
                 rd.include(request, response);
                 out.println("Student Added Successfully");
@@ -52,6 +65,5 @@ public class ValidateStudent extends HttpServlet {
             }
         }
     }
-
 
 }

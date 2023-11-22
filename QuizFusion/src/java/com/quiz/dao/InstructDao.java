@@ -2,6 +2,9 @@ package com.quiz.dao;
 
 import java.sql.*;
 import com.pojo.*;
+import static com.quiz.dao.StudentDao.con;
+import java.util.ArrayList;
+import java.util.List;
 
 public class InstructDao {
 
@@ -22,5 +25,25 @@ public class InstructDao {
             e.printStackTrace();
         }
         return false;
+    }
+    
+    public static List<Instruction> getAllInstructionList() {
+        String sql = "select * from instruction";
+        List<Instruction> list = new ArrayList();
+        try {
+            PreparedStatement pst = con.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()) {
+                Instruction st = new Instruction();
+                st.setSrno(rs.getInt("srno"));
+                st.setInstruct(rs.getString("description"));
+                list.add(st);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return list;
     }
 }

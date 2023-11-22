@@ -10,6 +10,7 @@ package com.pojo;
  */
 public class Instruction {
     private String instruct;
+    private int srno;
     
     public Instruction() {}
     
@@ -19,5 +20,12 @@ public class Instruction {
     
     public String getInstruct() {
         return instruct;
+    }
+    public void setSrno(int srno) {
+        this.srno = srno;
+    }
+
+    public int getSrno() {
+        return srno;
     }
 }

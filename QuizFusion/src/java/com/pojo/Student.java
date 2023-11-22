@@ -7,22 +7,23 @@ package com.pojo;
 public class Student {
 
     private String name, userid, pass;
-    private int no;
+    private int id;
     public Student() {
     }
 
-    public Student(String name, String userid, String pass) {
+    public Student(int id,String name, String userid, String pass) {
+        this.id = id;
         this.name = name;
         this.userid = userid;
         this.pass = pass;
     }
     
-    public int getNo() {
-        return no;
+    public int getId() {
+        return id;
     }
     
-    public void setNo(int no) {
-        this.no = no;
+    public void setId(int id) {
+        this.id = id;
     }
     
     public String getName() {

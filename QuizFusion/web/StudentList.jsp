@@ -69,7 +69,7 @@
     <body>
         <%
             List<Student> stdlist = (List<Student>) session.getAttribute("stdlist");
-            int count = 0;
+            int count = 1;
         %>
         <div class="container">
             <nav><h1>List Of All Student</h1></nav>
@@ -88,12 +88,12 @@
 
                     <% for (Student stds : stdlist) {%>
                     <tr style="padding: 15px 10px; background: wheat; font-size: 20px; color: blueviolet;">
-                        <td>1</td>
+                        <td><%= stds.getId() %></td>
                         <td><%= stds.getUserid()%></td>
                         <td><%= stds.getName()%></td>
                         <td><%= stds.getPass()%></td>
-                        <td><a href="">Edit</a></td>
-                        <td><a href="">Delete</a></td>
+                        <td><a href="ValidateStudent?action=edit&&id=<%=stds.getId()%>">Edit</a></td>
+                        <td><a href="ValidateStudent?action=delete&&id=<%=stds.getId()%>">Delete</a></td>
                     </tr>
                     <% }%> 
                     <tr>

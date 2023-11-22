@@ -62,14 +62,19 @@
             console.log("Success");
             addStudent.addEventListener('click', studentList);
             addInstruct.addEventListener('click', instructList);
+            addQuestion.addEventListener('click', questionList);
             console.log("Failure");
             
             function studentList() {
-                window.location.href = "ValidateStudent";
+                window.location.href = "ValidateStudent?action=liststudent";
             }
             
             function instructList() {
-                window.location.href = "InstructionList.jsp";
+                window.location.href = "InstructionServlet?action=listinstruct";
+            }
+            
+            function questionList() {
+                window.location.href = "QuestionServlet?action=listquestion";
             }
         </script>
     </body>
